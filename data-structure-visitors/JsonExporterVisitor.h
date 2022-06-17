@@ -7,15 +7,20 @@
 
 
 #include "ExportVisitor.h"
-#include <Graph.h>
-#include <Queue.h>
-#include <Stack.h>
 
+class JsonExporterVisitor : public ExportVisitor {
+public:
+    JsonExporterVisitor();
 
-class JsonExporterVisitor : ExportVisitor {
-    std::string exportGraph(Graph *graph) override;
-    std::string exportQueue(Queue *queue) override;
-    std::string exportStack(Stack *stack) override;
+    const std::string &getCurrentRepresentation() const;
+
+    void exportGraph(Graph *graph) override;
+    void exportQueue(Queue *queue) override;
+    void exportStack(Stack *stack) override;
+
+private:
+    std::string currentRepresentation;
+
 };
 
 

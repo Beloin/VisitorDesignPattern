@@ -6,16 +6,16 @@
 #define VISITOR_EXPORTVISITOR_H
 
 
+#include <string>
 #include <Graph.h>
 #include <Queue.h>
 #include <Stack.h>
-#include <string>
 
 class ExportVisitor {
 public:
-    virtual std::string exportGraph(Graph *graph) = 0;
-    virtual std::string exportQueue(Queue *queue) = 0;
-    virtual std::string exportStack(Stack *stack) = 0;
+    virtual void exportGraph(Graph *graph) = 0;
+    virtual void exportQueue(Queue *queue) = 0;
+    virtual void exportStack(Stack *stack) = 0;
 };
 
 

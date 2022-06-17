@@ -5,7 +5,7 @@
 #include "string"
 #include "JsonExporterVisitor.h"
 
-std::string JsonExporterVisitor::exportGraph(Graph *graph) {
+void JsonExporterVisitor::exportGraph(Graph *graph) {
     std::string jsonString = "{";
 
     jsonString += "\"edges\":";
@@ -16,10 +16,10 @@ std::string JsonExporterVisitor::exportGraph(Graph *graph) {
 
     jsonString += "}";
 
-    return jsonString;
+    this->currentRepresentation = jsonString;
 }
 
-std::string JsonExporterVisitor::exportQueue(Queue *queue) {
+void JsonExporterVisitor::exportQueue(Queue *queue) {
     std::string jsonString = "{";
 
     jsonString += "\"itemCount\":";
@@ -30,10 +30,10 @@ std::string JsonExporterVisitor::exportQueue(Queue *queue) {
 
     jsonString += "}";
 
-    return jsonString;
+    this->currentRepresentation = jsonString;
 }
 
-std::string JsonExporterVisitor::exportStack(Stack *stack) {
+void JsonExporterVisitor::exportStack(Stack *stack) {
     std::string jsonString = "{";
 
     jsonString += "\"itemCount\":";
@@ -44,5 +44,11 @@ std::string JsonExporterVisitor::exportStack(Stack *stack) {
 
     jsonString += "}";
 
-    return jsonString;
+    this->currentRepresentation = jsonString;
 }
+
+const std::string &JsonExporterVisitor::getCurrentRepresentation() const {
+    return currentRepresentation;
+}
+
+JsonExporterVisitor::JsonExporterVisitor() = default;
