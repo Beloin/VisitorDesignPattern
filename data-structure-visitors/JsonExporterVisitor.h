@@ -7,6 +7,9 @@
 
 
 #include "ExportVisitor.h"
+#include "Graph.h"
+#include "Queue.h"
+#include "Stack.h"
 
 class JsonExporterVisitor : public ExportVisitor {
 public:
@@ -14,9 +17,9 @@ public:
 
     const std::string &getCurrentRepresentation() const;
 
-    void exportGraph(Graph *graph) override;
-    void exportQueue(Queue *queue) override;
-    void exportStack(Stack *stack) override;
+    void exportGraph(const Graph *graph) override;
+    void exportQueue(const Queue *queue) override;
+    void exportStack(const Stack *stack) override;
 
 private:
     std::string currentRepresentation;

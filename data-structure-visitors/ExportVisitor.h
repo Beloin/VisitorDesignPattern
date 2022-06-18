@@ -7,15 +7,16 @@
 
 
 #include <string>
-#include <Graph.h>
-#include <Queue.h>
-#include <Stack.h>
+
+class Graph;
+class Queue;
+class Stack;
 
 class ExportVisitor {
 public:
-    virtual void exportGraph(Graph *graph) = 0;
-    virtual void exportQueue(Queue *queue) = 0;
-    virtual void exportStack(Stack *stack) = 0;
+    virtual void exportGraph(const Graph *graph) = 0;
+    virtual void exportQueue(const Queue *queue) = 0;
+    virtual void exportStack(const Stack *stack) = 0;
 };
 
 

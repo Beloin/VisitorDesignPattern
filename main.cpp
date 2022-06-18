@@ -16,8 +16,12 @@ int main() {
     ExportVisitor *jsonExporterVisitor = new JsonExporterVisitor();
 
     graph->accept(jsonExporterVisitor);
+    std::cout << "Graph JSON Representation: " << ((JsonExporterVisitor *) jsonExporterVisitor)->getCurrentRepresentation() << std::endl;
+    queue->accept(jsonExporterVisitor);
+    std::cout << "Queue JSON Representation: " << ((JsonExporterVisitor *) jsonExporterVisitor)->getCurrentRepresentation() << std::endl;
+    stack->accept(jsonExporterVisitor);
+    std::cout << "Stack JSON Representation: " << ((JsonExporterVisitor *) jsonExporterVisitor)->getCurrentRepresentation() << std::endl;
 
-    std::cout << "Graph JSON Representation: " << std::endl << ((JsonExporterVisitor *) jsonExporterVisitor)->getCurrentRepresentation();
 
     return 0;
 }
